@@ -7,14 +7,22 @@ source $SCRIPT_DIR/functions.sh
 EVS_SCRIPT_LOG="${BASH_SOURCE[0]%.*}.log"
 #
 ./install_dependencies.sh
+test $? -gt 0 && exit 1
 
 ./nodectl update_repos
+test $? -gt 0 && exit 1
 
 ./nodectl update_rust
+test $? -gt 0 && exit 1
+
 
 ./nodectl build_all
+test $? -gt 0 && exit 1
+
 
 ./nodectl copy_executables
+test $? -gt 0 && exit 1
+
 #
 test -r "$USER_SYSTEMD_DIR/$EVS_SERVICE.service" ||
 { 
@@ -59,7 +67,10 @@ EOD
 }
 #
 ./initial_configuration.sh
+test $? -gt 0 && exit 1
 #
 ./nodectl service_stop
+test $? -gt 0 && exit 1
 
 ./nodectl service_start
+test $? -gt 0 && exit 1

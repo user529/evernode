@@ -63,7 +63,7 @@ export EVS_ELECTION="$EVS_ROOT/election"
 export EVS_VSCRIPTS="$EVS_ROOT/vscripts"
 #  Node logs dir
 export EVS_LOGS="$EVS_ROOT/logs"
-export EVS_SCRIPT_LOG="$EVS_LOGS/scripts.log"
+test -z "$EVS_SCRIPT_LOG" && export EVS_SCRIPT_LOG="$EVS_LOGS/scripts.log"
 export EVS_NODE_LOG="$EVS_LOGS/$EVS_SERVICE.log"
 #
 ##########################################################

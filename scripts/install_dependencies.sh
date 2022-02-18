@@ -19,7 +19,7 @@ function install_yq {
 }
 #
 logging "info" "Install dependencies for $DIST_NAME $DIST_VERSION"
-case $DIST_NAME in 
+case $DIST_ID in 
     debian|ubuntu)
         logging "info" "Root access reqired"
         sudo apt update | tee -a "$EVS_SCRIPT_LOG" || exit 1
