@@ -11,7 +11,7 @@ source $SCRIPT_DIR/env.sh
 source $SCRIPT_DIR/functions.sh
 #
 #  Redefine log file
-EVS_SCRIPT_LOG="${BASH_SOURCE[0]%.*}.log"
+test -z $EVS_SCRIPT_LOG && EVS_SCRIPT_LOG="${BASH_SOURCE[0]%.*}.log"
 #
 function check_prepare_dir {
     DIR_NAME="$1"
