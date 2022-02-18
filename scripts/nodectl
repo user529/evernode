@@ -1,0 +1,17 @@
+#!/bin/bash
+
+shopt -s extglob
+export SCRIPT_DIR=`cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P`
+source $SCRIPT_DIR/env.sh
+source $SCRIPT_DIR/functions.sh
+
+CMD=$1
+
+case "$CMD" in
+    @($CMD_LIST))
+        $CMD
+        ;;
+    *)
+        echo "Argument $CMD is not recognized "
+        ;;
+esac
