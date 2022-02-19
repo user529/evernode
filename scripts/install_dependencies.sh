@@ -31,7 +31,7 @@ case $DIST_ID in
     ol)
         dnf check-update  | tee -a "$EVS_SCRIPT_LOG"
         logging "info" "Root access reqired"
-        if [[ $(echo "$DIST_VERSION" | tr -d.) -ge $(echo "8.0" | tr -d.) ]]; then
+        if [[ $(echo "$DIST_VERSION" | tr -d '.') -ge $(echo "8.0" | tr -d '.') ]]; then
             sudo dnf install -y oracle-epel-release-8el | tee -a "$EVS_SCRIPT_LOG" || exit 1
         fi
         sudo dnf upgrade --security

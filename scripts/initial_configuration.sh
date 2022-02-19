@@ -26,13 +26,13 @@ function check_prepare_dir {
 check_os
 #
 logging "info" "Make sure that only the owner has access to the evernode directory"
-chmod -R 700 $(dirname $SCRIPT_DIR) || exit 1
+chmod -R go-rwx $(dirname $SCRIPT_DIR) || exit 1
 #
 logging "info" "Prepare the node root directory"
 check_prepare_dir "$EVS_ROOT"
 #
 logging "info" "Prepare the log directory"
-check_prepare_dir "$EVS_LOG"
+check_prepare_dir "$EVS_LOGS"
 #
 logging "info" "Prepare the node temp directory"
 check_prepare_dir "$EVS_TEMP"

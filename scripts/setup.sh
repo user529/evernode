@@ -68,9 +68,4 @@ EOD
 #
 ./initial_configuration.sh
 test $? -gt 0 && exit 1
-#
-./nodectl service_stop
-test $? -gt 0 && exit 1
 
-./nodectl service_start
-test $? -gt 0 && exit 1
